@@ -1,0 +1,43 @@
+server:
+  port: ${PORT:8387}
+  http2:
+    enabled: true
+logging:
+  level:
+    org.springframevork.security: trace
+spring:
+  application:
+    name: claim-manager
+  liquibase:
+    enabled: true
+    change-log: classpath:db/changelog/changelog-master.xml
+
+  jpa:
+    show-sql: false
+    properties:
+      hibernate:
+        format_sql: true
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    generate-ddl: false
+    hibernate:
+      ddl-auto: validate
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://${DB_HOST:localhost}:${DB_PORT:5432}/${DB_NAME:ld-claim-manager}
+    username: ${DB_USERNAME:postgres}
+    password: ${DB_PASSWORD:postgres}
+
+springdoc:
+  swagger-ui:
+    path: /api/v1/swagger-ui/index.html
+    operationsSorter: method
+  api-docs:
+    path: /api/v1/api-docs
+
+jwt:
+  secret: h4f8093h4f983yhrt9834hr0934hf0hf493g493gf438rh438th34g34g
+  lifetime: 3600000
+
+app:
+  links:
+    register: http://localhost:8387/api/v1/users/login

@@ -1,0 +1,515 @@
+{
+	"info": {
+		"_postman_id": "695f392e-69a7-4d12-837e-b0185a8c1376",
+		"name": "lite-digital-test-task",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "18625708",
+		"_collection_link": "https://galactic-flare-73504.postman.co/workspace/0880f866-237b-4f7e-b6ea-cceb77552b3e/collection/18625708-695f392e-69a7-4d12-837e-b0185a8c1376?action=share&source=collection_link&creator=18625708"
+	},
+	"item": [
+		{
+			"name": "users",
+			"item": [
+				{
+					"name": "getAllUsers",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/users",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "usualUserLogin",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"login\": \"tok\",\r\n    \"password\": 100\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8387/api/v1/users/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8387",
+							"path": [
+								"api",
+								"v1",
+								"users",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "operatorLogin",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"login\": \"petro\",\r\n    \"password\": 100\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8387/api/v1/users/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8387",
+							"path": [
+								"api",
+								"v1",
+								"users",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "logout",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8387/api/v1/users/logout",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8387",
+							"path": [
+								"api",
+								"v1",
+								"users",
+								"logout"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "adminLogin",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// const temp = pm.response.json();\r",
+									"\r",
+									"// pm.environment.set('token', temp.token);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"login\": \"gena\",\r\n    \"password\": 100\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/users/login",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"users",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "changeUserRights",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8387/api/v1/users/5?role=user",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8387",
+							"path": [
+								"api",
+								"v1",
+								"users",
+								"5"
+							],
+							"query": [
+								{
+									"key": "role",
+									"value": "user"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "claims",
+			"item": [
+				{
+					"name": "createDraftClaim",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "\"topic of claim\"\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8387/api/v1/claims/draft",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8387",
+							"path": [
+								"api",
+								"v1",
+								"claims",
+								"draft"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "sendClaim",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/claims/13",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"claims",
+								"13"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "editClaim",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "It's some new description for this claim",
+							"options": {
+								"raw": {
+									"language": "text"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/claims/1",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"claims",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getUserClaims",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8387/api/v1/claims?page=1&reversed=false",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8387",
+							"path": [
+								"api",
+								"v1",
+								"claims"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "reversed",
+									"value": "false"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getSentClaims",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8387/api/v1/claims/sent",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8387",
+							"path": [
+								"api",
+								"v1",
+								"claims",
+								"sent"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "acceptClaim",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8387/api/v1/claims/accept/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8387",
+							"path": [
+								"api",
+								"v1",
+								"claims",
+								"accept",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "declineClaim",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8387/api/v1/claims/decline/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8387",
+							"path": [
+								"api",
+								"v1",
+								"claims",
+								"decline",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getProcessingClaims",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8387/api/v1/claims/processing?login=tok",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8387",
+							"path": [
+								"api",
+								"v1",
+								"claims",
+								"processing"
+							],
+							"query": [
+								{
+									"key": "login",
+									"value": "tok"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "api",
+			"item": [
+				{
+					"name": "api-docs",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

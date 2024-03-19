@@ -1,0 +1,40 @@
+<databaseChangeLog
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+
+    <changeSet id="create-table-claims" author="blckrbbit">
+        <createTable tableName="claims">
+
+            <column name="id" type="bigserial">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+
+            <column name="created_at" type="timestamp with time zone">
+                <constraints nullable="true"/>
+            </column>
+
+            <column name="user_from" type="bigint">
+                <constraints nullable="true"/>
+            </column>
+
+            <column name="description" type="text">
+                <constraints nullable="false"/>
+            </column>
+
+
+            <column name="status" type="varchar(15)">
+                <constraints nullable="true"/>
+            </column>
+
+        </createTable>
+
+        <addForeignKeyConstraint baseTableName="claims" baseColumnNames="user_from"
+                                 constraintName="fk_claims_users"
+                                 referencedTableName="users" referencedColumnNames="id"
+                                 onDelete="CASCADE"/>
+
+    </changeSet>
+
+</databaseChangeLog>

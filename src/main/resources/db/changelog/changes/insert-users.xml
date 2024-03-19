@@ -1,0 +1,98 @@
+<databaseChangeLog
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+
+    <changeSet id="insert-users" author="blckrbbit">
+        <insert tableName="users">
+            <column name="id" value="1"/>
+            <column name="phone" value="+79110000000"/>
+            <column name="surname" value="Ivanov"/>
+            <column name="name" value="Ivan"/>
+            <column name="login" value="ivashka"/>
+            <column name="password" value="$2a$12$pkF00UNxghGZpy54SgOd3.DRXQEPwx2ZmwxH4E7irANU92KakK/5a"/>
+        </insert>
+
+        <insert tableName="users">
+            <column name="id" value="2"/>
+            <column name="phone" value="+79110101010"/>
+            <column name="surname" value="Petrov"/>
+            <column name="name" value="Petr"/>
+            <column name="login" value="petro"/>
+            <column name="password" value="$2a$12$pkF00UNxghGZpy54SgOd3.DRXQEPwx2ZmwxH4E7irANU92KakK/5a"/>
+        </insert>
+
+        <insert tableName="users">
+            <column name="id" value="3"/>
+            <column name="phone" value="+79515555555"/>
+            <column name="surname" value="Sidorov"/>
+            <column name="name" value="Sidor"/>
+            <column name="login" value="sidr"/>
+            <column name="password" value="$2a$12$pkF00UNxghGZpy54SgOd3.DRXQEPwx2ZmwxH4E7irANU92KakK/5a"/>
+        </insert>
+
+        <insert tableName="users">
+            <column name="id" value="4"/>
+            <column name="phone" value="+79112222222"/>
+            <column name="surname" value="Gusev"/>
+            <column name="name" value="Gennady"/>
+            <column name="login" value="gena"/>
+            <column name="password" value="$2a$12$pkF00UNxghGZpy54SgOd3.DRXQEPwx2ZmwxH4E7irANU92KakK/5a"/>
+        </insert>
+
+        <insert tableName="users">
+            <column name="id" value="5"/>
+            <column name="phone" value="+79112223333"/>
+            <column name="surname" value="Fedorov"/>
+            <column name="name" value="Fedor"/>
+            <column name="login" value="fedya"/>
+            <column name="password" value="$2a$12$pkF00UNxghGZpy54SgOd3.DRXQEPwx2ZmwxH4E7irANU92KakK/5a"/>
+        </insert>
+
+        <insert tableName="users">
+            <column name="id" value="6"/>
+            <column name="phone" value="+79112222288"/>
+            <column name="surname" value="Tok"/>
+            <column name="name" value="Anatoly"/>
+            <column name="login" value="tok"/>
+            <column name="password" value="$2a$12$pkF00UNxghGZpy54SgOd3.DRXQEPwx2ZmwxH4E7irANU92KakK/5a"/>
+        </insert>
+    </changeSet>
+
+    <changeSet id="2-insert-users" author="blckrbbit">
+        <insert tableName="users_roles">
+            <column name="user_id" value="1"/>
+            <column name="role_id" value="1"/>
+        </insert>
+        <insert tableName="users_roles">
+            <column name="user_id" value="2"/>
+            <column name="role_id" value="2"/>
+        </insert>
+        <insert tableName="users_roles">
+            <column name="user_id" value="3"/>
+            <column name="role_id" value="3"/>
+        </insert>
+        <insert tableName="users_roles">
+            <column name="user_id" value="4"/>
+            <column name="role_id" value="1"/>
+        </insert>
+
+        <insert tableName="users_roles">
+            <column name="user_id" value="4"/>
+            <column name="role_id" value="2"/>
+        </insert>
+
+        <insert tableName="users_roles">
+            <column name="user_id" value="5"/>
+            <column name="role_id" value="3"/>
+        </insert>
+
+        <insert tableName="users_roles">
+            <column name="user_id" value="6"/>
+            <column name="role_id" value="3"/>
+        </insert>
+    </changeSet>
+
+
+</databaseChangeLog>
